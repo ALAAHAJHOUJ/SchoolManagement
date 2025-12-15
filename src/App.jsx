@@ -1,10 +1,11 @@
 import React from 'react'
 import Acc from './Acceuille/Acc'
+import LoginTeacher from './Login/LoginTeacher/LoginTeacher'
 
 function App() {
   return (
     <>
-     <Acc></Acc>
+     <LoginTeacher></LoginTeacher>
     </>
 
   )
