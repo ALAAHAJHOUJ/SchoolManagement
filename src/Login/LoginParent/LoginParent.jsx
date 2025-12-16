@@ -15,7 +15,7 @@ function LoginParent() {
                   <input type="checkbox" name="souvenir" id="souvenir" className='w-[15px] h-[15px]' />
                   <label htmlFor="souvenir" >remember me</label>
                 </div>
-                <button onClick={envoyer} type='submit' className='border-white border-[2px] w-[260px] h-[60px] text-white text-[20px] font-[600] rounded-[13px] bg-blue-500 hover:bg-blue-300 outline-none'>Login</button>
+                <button onClick={envoyer} type='submit' className='border-white border-[2px] w-[260px] h-[60px] text-white text-[20px] font-[600] rounded-[13px] bg-[#5d5dfcb2] hover:bg-blue-300 outline-none'>Login</button>
                 <div className='flex flex-col items-center gap-5 mb-5'>
                         <a href="" className='text-[purple] underline hover:no-underline'>Forgot password?</a>
                         <a href="" className='text-[purple] underline hover:no-underline'>SignUp</a>

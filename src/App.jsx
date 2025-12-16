@@ -8,7 +8,7 @@ import InscriptionTeacher from './inscription/inscriptionteacher/inscriptionteac
 function App() {
   return (
     <>
-       <InscriptionTeacher></InscriptionTeacher>
+       <LoginStudent></LoginStudent>
     </>
 
   )
