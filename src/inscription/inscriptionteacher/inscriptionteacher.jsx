@@ -1,6 +1,18 @@
-import React from 'react'
+import { City, Country } from "country-state-city";
 import Select from "react-select";
 import countryList from "react-select-country-list";
+
+
+
+
+function getCitiesByCountryName(countryName) {
+  const country = Country.getAllCountries()
+    .find(c => c.name.toLowerCase() === countryName.toLowerCase());
+
+  if (!country) return [];
+
+  return City.getCitiesOfCountry(country.isoCode);
+}
 
 
 
@@ -11,13 +23,17 @@ function Countries(){
 
 
 
+function Ville(){
+    const tab=[...getCitiesByCountryName('Morocco')]
+    return <Select className='w-[260px]'  styles={{control:base=>({...base,borderRadius:"12px",backgroundColor:"#ffffff83",height:"50px"})}} placeholder="Select Your City" options={tab}></Select>
+}
+
+
 function InscriptionTeacher() {
   const envoyer=(e)=>{
     e.preventDefault()
   }
 
-
-  
   return (
       <div className='w-full min-h-full flex justify-center items-start mb-9 mt-8'>
           <div className='border-white border-[2px] bg-[#ffffff83] shadow-[0px_0px_23px_6px_rgba(255,255,255,0.63)] w-[94%] min-[400px]:w-[360px] flex flex-col gap-[30px] items-center rounded-[12px] mb-8'>
@@ -28,6 +44,7 @@ function InscriptionTeacher() {
                     <input className='rounded-[10px] h-[50px] w-[260px] box-border pl-[10px] bg-[#ffffff65] border-white border-[2px] focus:border-[#e2e2e2] outline-none placeholder:text-[#747474c6]' placeholder='enter Your email' type="text" />
                     <input className='rounded-[10px] h-[50px] w-[260px] box-border pl-[10px] bg-[#ffffff65] border-white border-[2px] focus:border-[#e2e2e2] outline-none placeholder:text-[#747474c9]' placeholder='enter Your password' type="password" />
                     {Countries()}
+                    {Ville()}
                     <input type="file" id="f" hidden></input>
                     <label htmlFor="f" className=' w-[180px] h-[50px] rounded-[12px] flex justify-center items-center text-white font-[500] bg-[#7e7e7e3d] border-white border-[1px] cursor-pointer hover:bg-[#d6d6d6a1]'>Chose an image</label>
                     <button onClick={envoyer} type='submit' className='border-white border-[2px] w-[260px] h-[60px] text-white text-[20px] font-[600] rounded-[13px] bg-blue-500 hover:bg-blue-300 outline-none'>Send</button>
