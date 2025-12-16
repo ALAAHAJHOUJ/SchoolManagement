@@ -9,7 +9,7 @@ function LoginTeacher() {
      console.log("tester")
   }
   return (
-    <div className='border-red-600 border-[1px] w-[100%] flex justify-center items-center h-full'>
+    <div className=' w-[100%] flex justify-center items-center h-full'>
         <div className='border-white bg-[#ffffff83] border-[2px] shadow-[0px_0px_23px_6px_rgba(255,255,255,0.63)] w-[94%] min-[400px]:w-[360px] flex flex-col gap-[30px] items-center  min-h-[500px] rounded-[12px]'>
              <span className='text-[33px] font-[500] text-white inline-block mt-5'>Teacher Login</span>
              <form action="" className='flex flex-col items-center gap-[36px] w-full'>
