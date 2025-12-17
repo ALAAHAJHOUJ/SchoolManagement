@@ -6,51 +6,60 @@ import countryList from "react-select-country-list";
 
 
 
-function getCitiesByCountryName(countryName) {
-  const country = Country.getAllCountries()
-    .find(c => c.name.toLowerCase() === countryName.toLowerCase());
-
-  if (!country) return [];
-
-  return City.getCitiesOfCountry(country.isoCode);
-}
 
 
 
-function Countries(callback){
-   const options=countryList().getData()
-   return <Select className='w-[260px]' 
-   styles={{control:base=>({...base,borderRadius:"12px",backgroundColor:"#ffffff83",height:"50px"})}} 
-   placeholder="Select Your countrie" 
-   options={options}
-   onChange={(valeur)=>{console.log(valeur.label);callback(valeur.label)}}>
-
-   </Select>
-}
-
-
-
-function Ville(pays){
-    let tableau;
-    console.log(getCitiesByCountryName('Morocco'))
-    if(pays){
-       tableau=getCitiesByCountryName(pays)
-    }else{
-       tableau=[]
-    }
-    return <Select className='w-[260px]'  
-    styles={{control:base=>({...base,borderRadius:"12px",backgroundColor:"#ffffff83",height:"50px"})}} 
-    placeholder="Select Your City" 
-    options={tableau.map((ele)=>{return {label:ele.name}})}>
-
-    </Select>
-}
 
 
 function InscriptionTeacher() {
   const [pays,setPays]=useState("")
   const envoyer=(e)=>{
     e.preventDefault()
+  }
+
+
+
+
+  const Countries=(callback)=>{
+      const options=countryList().getData()
+      return <Select className='w-[260px]' 
+      styles={{control:base=>({...base,borderRadius:"12px",backgroundColor:"#ffffff83",height:"50px"})}} 
+      placeholder="Select Your countrie" 
+      options={options}
+      onChange={(valeur)=>{console.log(valeur.label);callback(valeur.label)}}>
+
+      </Select>
+   }
+
+
+
+
+
+  const Ville=(pays)=>{
+      let tableau;
+      console.log(getCitiesByCountryName('Morocco'))
+      if(pays){
+        tableau=getCitiesByCountryName(pays)
+      }else{
+        tableau=[]
+      }
+      return <Select className='w-[260px]'  
+      styles={{control:base=>({...base,borderRadius:"12px",backgroundColor:"#ffffff83",height:"50px"})}} 
+      placeholder="Select Your City" 
+      options={tableau.map((ele)=>{return {label:ele.name}})}>
+
+      </Select>
+  }
+
+
+
+  const getCitiesByCountryName=(countryName)=> {
+      const country = Country.getAllCountries()
+        .find(c => c.name.toLowerCase() === countryName.toLowerCase());
+
+      if (country=="") return [];
+
+      return City.getCitiesOfCountry(country.isoCode);
   }
 
   return (
